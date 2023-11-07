@@ -1,0 +1,60 @@
+<div class="container">
+    <form (submit)="onaddpost(addpostForm)" #addpostForm="ngForm">
+      <h2>Create New Post</h2>
+      <div class="input-field">
+        <input type="text"
+        ngModel 
+        name="enteredtitle"
+        placeholder="Post Title"
+        required
+        minLength="3"
+        maxlength="30"
+        pattern="^[a-zA-Z0-9_ ]{3,30}$"
+        #enteredtitle="ngModel"/>
+        <div *ngIf="enteredtitle.invalid && (enteredtitle.dirty || enteredtitle.touched)"
+        class="error-message"
+        >
+          Invalid Title
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="text"
+        ngModel 
+        name="entereddescription"
+        placeholder="Post Description"
+        required
+        minLength="3"
+        maxlength="50"
+        pattern="^[a-zA-Z0-9_ ]{3,50}$"
+        #entereddescription="ngModel"/>
+        <div
+          *ngIf="entereddescription.invalid && (entereddescription.dirty || entereddescription.touched)"
+          class="error-message"
+        >
+          Invalid Description
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="text"
+        ngModel 
+        name="entereddepartmentcode"
+        placeholder="Post Department Code"
+        required
+        minLength="3"
+        maxlength="50"
+        pattern="^[a-zA-Z0-9_ ]{3,50}$"
+        #entereddepartmentcode="ngModel"/>
+        <div
+          *ngIf="entereddepartmentcode.invalid && (entereddepartmentcode.dirty || entereddepartmentcode.touched)"
+          class="error-message"
+        >
+          Invalid Department Code
+        </div>
+        <div *ngIf="errorMessage" class="create-error">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <button type="submit">Add Post</button>
+    </form>
+</div>
+  

@@ -1,0 +1,67 @@
+<div class="container">
+    <form (submit)="onSignup(signupform)" #signupform="ngForm">
+      <h2>Sign Up</h2>
+      <div class="center-inputs">
+        <input
+          type="text"
+          ngModel
+          name="enteredfirstname"
+          placeholder="First Name"
+          required
+          maxlength="55"
+          pattern="^[a-zA-Z]{2,55}$"
+          #enteredfirstname="ngModel"
+        />
+        <div *ngIf="enteredfirstname.invalid && (enteredfirstname.dirty || enteredfirstname.touched)">
+          Invalid First Name
+        </div>
+        <input
+          type="text"
+          ngModel
+          name="enteredlastname"
+          placeholder="Last Name"
+          required
+          maxlength="55"
+          pattern="^[a-zA-Z]{2,55}$"
+          #enteredlastname="ngModel"
+        />
+        <div *ngIf="enteredlastname.invalid && (enteredlastname.dirty || enteredlastname.touched)">
+          Invalid Last Name
+        </div>
+        <input
+          type="text"
+          ngModel
+          name="enteredusername"
+          placeholder="Username"
+          required
+          minlength="6"
+          maxlength="35"
+          pattern="^[a-zA-Z0-9_]{6,35}$"
+          #enteredusername="ngModel"
+        />
+        <div *ngIf="enteredusername.invalid && (enteredusername.dirty || enteredusername.touched)">
+          Invalid Username
+        </div>
+        <input
+          type="password"
+          ngModel
+          name="enteredpassword"
+          placeholder="Password"
+          required
+          minlength="6"
+          maxlength="35"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,35}" 
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+          #enteredpassword="ngModel"
+        />
+        <div *ngIf="enteredpassword.invalid && (enteredpassword.dirty || enteredpassword.touched)">
+          Invalid Password
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+        <button type="submit">Sign Up!</button>
+      </div>
+    </form>
+</div>
+

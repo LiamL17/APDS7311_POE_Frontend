@@ -1,0 +1,38 @@
+.confirm-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Add hover effect for the login button */
+  .confirm-button:hover {
+    background-color: #0056b3;
+  }
+
+  .cancel-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #DC3545;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Add hover effect for the login button */
+  .cancel-button:hover {
+    background-color: #FF6B78;
+  }
+

@@ -1,0 +1,41 @@
+<div class="container">
+    <form (submit)="onLogin(loginform)" #loginform="ngForm">
+      <h2>Login</h2>
+      <div class="center-inputs">
+        <input
+          type="text"
+          ngModel
+          name="enteredusername"
+          placeholder="Username"
+          required
+          minlength="6"
+          pattern="^[a-zA-Z0-9_]{6,}$"
+          #enteredusername="ngModel"
+        />
+        <div *ngIf="enteredusername.invalid && (enteredusername.dirty || enteredusername.touched)">
+          Invalid Username
+        </div>
+        <input
+          type="password"
+          ngModel
+          name="enteredpassword"
+          placeholder="Password"
+          required
+          minlength="6"
+          pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{6,35}$"
+          #enteredpassword="ngModel"
+        />
+        <div *ngIf="enteredpassword.invalid && (enteredpassword.dirty || enteredpassword.touched)">
+          Invalid Password
+        </div>
+        <div *ngIf="authservice.errorMessage" class="error-message">
+          {{ authservice.errorMessage }}
+        </div>
+        <button type="submit">Login</button>
+        <a routerLink="/signup">
+            <button class="signup-button">Sign Up</button>
+        </a>
+      </div>
+    </form>
+</div>
+  
